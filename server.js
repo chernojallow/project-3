@@ -17,7 +17,6 @@ app.use(userRoutes);
 
 mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost/project-3");
 
-
 app.listen(PORT, function() {
   console.log("connected", PORT)
 });
