@@ -1,28 +1,4 @@
 
-
-/*
-import React, { Component } from 'react';
-//import logo from './logo.svg';
-import Login from './components/Login.js';
-import Navbar from './components/Navbar';
-//import './App.css';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-      <Login/>
-      <Navbar/>
-       </div>
-    );
-  }
-}
-
-export default App;
-
-
-*/
-
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from './components/Login.js';
@@ -30,6 +6,9 @@ import Navbar from "./components/Navbar";
 import Faculty from "./pages/Faculty";
 import Preceptor from "./pages/Preceptor";
 import Student from "./pages/Student";
+import Clinicals from "./pages/Clinicals";
+import Evaluate from "./pages/Evaluate";
+
 
 
 const App = () => (
@@ -37,12 +16,15 @@ const App = () => (
     <div>
       <Login/>
       <Navbar />
-
-
+    
    {/*<Route exact path="/" component={About} /> */ }
         <Route exact path="/faculty" component={Faculty} />
         <Route exact path="/preceptor" component={Preceptor} />
         <Route exact path="/student" component={Student} />
+        <Route exact path="/clinicals" component={Clinicals} />
+        <Route exact path="/evaluate" component={Evaluate} />
+
+
 
     </div>
   </Router>

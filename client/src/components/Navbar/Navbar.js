@@ -12,40 +12,75 @@ const Navbar = props => (
       <ul className="navbar-nav">
         <li className="nav-item">
           <Link
-            to="/"
+            to="/student"
             className={
-              window.location.pathname === "/" || window.location.pathname === "/about"
+              window.location.pathname === "/clinicals"
+       
                 ? "nav-link active"
                 : "nav-link"
             }
+      
           >
             Student
           </Link>
         </li>
         <li className="nav-item">
           <Link
-            to="/discover"
+            to="/preceptor"
             className={
-              window.location.pathname === "/discover"
+              window.location.pathname === "/preceptor"
                 ? "nav-link active"
                 : "nav-link"
             }
           >
-           Preceptor
+            Preceptor
           </Link>
         </li>
         <li className="nav-item">
           <Link
-            to="/search"
+            to="/faculty"
             className={
-              window.location.pathname === "/search"
+              window.location.pathname === "/faculty"
                 ? "nav-link active"
                 : "nav-link"
             }
           >
             Faculty
           </Link>
+
         </li>
+
+ <li className="nav-item">
+          <Link
+            to="/clinicals"
+            className={
+              window.location.pathname === "/clinicals"
+                ? "nav-link active"
+                : "nav-link"
+            }
+          >
+            Clinicals
+          </Link>
+
+        </li>
+
+
+       <li className="nav-item">
+          <Link
+            to="/evaluate"
+            className={
+              window.location.pathname === "/evaluate"
+                ? "nav-link active"
+                : "nav-link"
+            }
+          >
+            Evaluate
+          </Link>
+
+        </li>
+
+
+
       </ul>
     </div>
   </nav>

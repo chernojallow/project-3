@@ -5,7 +5,6 @@ const db = require("../models/userLogin");
 router.get("/api/user", function(req, res){
    res.send("Get users");
 
-
 });
 
 router.post("/api/user", function(req, res){
@@ -16,7 +15,6 @@ router.post("/api/user", function(req, res){
        return res.json(response);
    })
 });
-
 
 router.post("/login", function(req, res){
     db.User.findOne({username:req.body.username},function(error,response){
@@ -31,7 +29,6 @@ router.post("/login", function(req, res){
         });
     })
 })
-
 
 
 router.put("/api/user/:id", function(req, res){
