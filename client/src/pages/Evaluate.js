@@ -1,30 +1,46 @@
 
 import React from "react";
+import API from "../api/Users";
 
 class Evaluate extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {value: ''};
+
+   
+    // constructor(props) {
+    //   super(props);
+    //   this.state = {
+    //     value: '',
+    //     viewclinical: []
+    
+    // };
   
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    //   this.handleChange = this.handleChange.bind(this);
+    //   this.handleSubmit = this.handleSubmit.bind(this);
+    // }
   
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
+    // handleChange(event) {
+    //   this.setState({value: event.target.value});
+    // }
   
-    handleSubmit(event) {
-      alert('Your favorite flavor is: ' + this.state.value);
-      event.preventDefault();
-    }
-  
+    // handleSubmit(event) {
+    //  // alert('Your favorite flavor is: ' + this.state.value);
+    //   event.preventDefault();
+
+    //   console.log("I'm evaluating you",this.state);
+
+
+    //   API.view(this.state).then(function(response){
+    //     console.log(response);
+        
+    //   })
+
+    // }
+
     render() {
       return (
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.props.handleSubmit}>
           <label>
             How is your preceptor performance this week:
-            <select value={this.state.value} onChange={this.handleChange}>
+            <select value={this.props.value} onChange={this.props.handleChange}>
               <option value="">Choose an option</option>
               <option value="1">1(Worst)</option>
               <option value="2">2</option>

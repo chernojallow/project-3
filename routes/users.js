@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models/userLogin");
+const view = require("../models/View");
+
+const eval =require ("../pages/View");
 
 router.get("/api/user", function(req, res){
    res.send("Get users");
@@ -31,6 +34,7 @@ router.post("/login", function(req, res){
 })
 
 
+/*
 router.put("/api/user/:id", function(req, res){
     res.send("update users");
 });
@@ -38,6 +42,40 @@ router.put("/api/user/:id", function(req, res){
 router.delete("/api/user/:id", function(req, res){
     res.send("Delete users");
 });
+
+
+*/
+
+
+
+/*
+router.post("/view", (req, res) => {
+  axios
+    .get( { params: req.query })
+    .then(({ data: { results } }) => res.json(results))
+    .catch(err => res.status(422).json(err));
+});
+
+*/
+
+
+
+router.get("/view", function(req, res){
+    res.send("Get users");
+ 
+ });
+
+
+
+router.post("/view", function(req, res){
+    console.log("here")
+    db.________.view(req.body, function(error, response) {
+        if(error){
+            return res.json(error)
+        }
+        return res.json(response);
+    })
+ });
 
 module.exports = router;
 
