@@ -69,7 +69,7 @@ router.get("/view", function(req, res){
 
 router.post("/view", function(req, res){
     console.log("here")
-    db.________.view(req.body, function(error, response) {
+    db.User.view(req.body, function(error, response) {
         if(error){
             return res.json(error)
         }

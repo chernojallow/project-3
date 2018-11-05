@@ -6,8 +6,13 @@ const API = {
     },
 
     view:function(newuser){
-        console.log(newuser)
+      //  console.log(newuser)
         return axios.post("/view", newuser)
+    },
+
+
+    viewClinicals:function(newClinical){
+        return axios.post("/viewClinicals", newClinical)
     }
 
 }

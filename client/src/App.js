@@ -9,45 +9,85 @@ import Student from "./pages/Student";
 import Clinicals from "./pages/Clinicals";
 import Evaluate from "./pages/Evaluate";
 import View from "./pages/View";
-import API from "./api/Users";
+import InputClinicals from "./pages/InputClinicals";
 
+import API from "./api/Users";
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: '',
-      viewclinical: []
 
-    };
+  // constructor(props) {
+  //   super(props);
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  //   this.state = {
+  //     value: '',
+  //     name: ""
+
+  //   };
+
+  //    this.handleChange = this.handleChange.bind(this);
+  //   this.handleSubmit = this.handleSubmit.bind(this);
+
+  // }
+
+
+  // handleChange(event) {
+  //   event.preventDefault();
+
+  //    this.setState( {[event.target.value]: event.target.name});
+
+
+  // }
+
+  // handleSubmit(event) {
+  //   // alert('Your favorite flavor is: ' + this.state.value);
+
+  //   event.preventDefault();
+
+  //   console.log("I'm evaluating you", this.state);
+  //   console.log(API)
+
+
+  //   API.view(this.state).then(function (response) {
+  //     console.log(response);
+
+  //   })
+
+
+  //   API.viewClinicals(this.state).then(function (response) {
+  //     console.log(response);
+
+  //   })
+
+  //}
+
+
+
+
+  state = {
+    name: "",
+    value: "",
+    class: ""
   }
-
-  handleChange(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({ value: event.target.value });
-
-
-  }
-
-  handleSubmit(event) {
-    // alert('Your favorite flavor is: ' + this.state.value);
-    
-    event.preventDefault();
-
-    console.log("I'm evaluating you", this.state);
-    console.log(API)
-
-
-    API.view(this.state).then(function (response) {
+    console.log("I'm signing up baby", this.state);
+    API.login(this.state).then(function (response) {
       console.log(response);
+    })
+  }
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+       value:event.target.value,
+       class:event.target.value
 
     })
-
   }
+
+
+
+
 
   render() {
     return (
@@ -60,10 +100,11 @@ class App extends React.Component {
             <Route exact path="/faculty" component={Faculty} />
             <Route exact path="/preceptor" component={Preceptor} />
             <Route exact path="/student" component={Student} />
-            <Route exact path="/clinicals" component={Clinicals} />
-    <Route exact path="/evaluate" render={ (props) => <Evaluate value={this.state.value} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>}/>
-            
-            <Route exact path="/view" render={ (props) => <View value={this.state.value}/>}/>
+            <Route exact path="/evaluate" render={(props) => <Evaluate value={this.state.value} name={this.state.name} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} />
+            <Route exact path="/view" render={(props) => <View value={this.state.value} name={this.state.name} />} />
+
+             <Route exact path="/inputClinicals" render={(props) => <InputClinicals value={this.state.class}  handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} />
+             <Route exact path="/clinicals" render={(props) => <Clinicals class={this.state.class} />} /> 
           </div>
         </Switch>
       </Router>
@@ -71,10 +112,6 @@ class App extends React.Component {
   }
 
 }
-
-
-
-
 
 export default App;
 

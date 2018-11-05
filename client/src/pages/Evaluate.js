@@ -1,6 +1,5 @@
 
 import React from "react";
-import API from "../api/Users";
 
 class Evaluate extends React.Component {
 
@@ -35,10 +34,21 @@ class Evaluate extends React.Component {
 
     // }
 
+
+
+
     render() {
       return (
         <form onSubmit={this.props.handleSubmit}>
           <label>
+
+           <input 
+            value={this.props.name} onChange={this.props.handleChange}
+            name="name"
+            type="text"
+            placeholder="name"
+          />
+
             How is your preceptor performance this week:
             <select value={this.props.value} onChange={this.props.handleChange}>
               <option value="">Choose an option</option>

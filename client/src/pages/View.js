@@ -1,6 +1,6 @@
 
 import React from "react";
-import API from "../api/Users";
+
 
 class View extends React.Component {
 
@@ -38,6 +38,7 @@ class View extends React.Component {
             <div>
                 <h3>In VIEW</h3>
                 {this.props.value}
+                {this.props.name}
 
             </div>
         );
