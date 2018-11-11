@@ -46,18 +46,26 @@ export default class Navbar2 extends React.Component {
 
                     <Link
                       to="/clinicals">
-                      View Clinicals
+                      Clinicals Schedule
                 </Link>
 
                   </DropdownItem>
                   <DropdownItem>
 
                     <Link
-                      to="/evaluate">
-                      Evaluate
+                      to="/clinicalEvents">
+                      Clinical Events
                </Link>
-
                   </DropdownItem>
+
+
+                  <DropdownItem>
+                  <Link
+             to="/evaluate">
+               Evaluate
+              </Link>
+
+            </DropdownItem>
 
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -75,7 +83,11 @@ export default class Navbar2 extends React.Component {
                   </Link>
                   </DropdownItem>
                   <DropdownItem>
-                    Evaluate
+                    Search Student
+                  </DropdownItem>
+
+                   <DropdownItem>
+                    Search Schedule
                   </DropdownItem>
 
                   <DropdownItem>
@@ -97,7 +109,7 @@ export default class Navbar2 extends React.Component {
                 <DropdownMenu right>
                   <DropdownItem>
 
-                    Clinicals
+                    Student login
                   </DropdownItem>
                   <DropdownItem>
                     Evaluate

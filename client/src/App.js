@@ -10,8 +10,10 @@ import Clinicals from "./pages/Clinicals";
 import Evaluate from "./pages/Evaluate";
 import View from "./pages/View";
 import InputClinicals from "./pages/InputClinicals";
+//import Register from "./pages/Register";
 
 import API from "./api/Users";
+import { EventEmitter } from "events";
 
 class App extends React.Component {
 
@@ -68,25 +70,29 @@ class App extends React.Component {
     name: "",
     value: "",
     class: ""
+
   }
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("I'm signing up baby", this.state);
-    API.login(this.state).then(function (response) {
+    console.log("I'm signingfhfhghg up baby", this.state);
+    API.view(this.state).then(function (response) {
       console.log(response);
     })
   }
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
-       value:event.target.value,
-       class:event.target.value
+      value: event.target.value,
 
     })
   }
 
+  handleInputChange = (event) => {
+    this.setState({
+      class: event.target.value
 
-
+    })
+  }
 
 
   render() {
@@ -96,15 +102,18 @@ class App extends React.Component {
           <div>
             <Login />
             <Navbar />
+            
+       
 
             <Route exact path="/faculty" component={Faculty} />
             <Route exact path="/preceptor" component={Preceptor} />
             <Route exact path="/student" component={Student} />
-            <Route exact path="/evaluate" render={(props) => <Evaluate value={this.state.value} name={this.state.name} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} />
+            <Route exact path="/evaluate" render={(props) => <Evaluate value={this.state.value}   name={this.state.name} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} />
             <Route exact path="/view" render={(props) => <View value={this.state.value} name={this.state.name} />} />
 
-             <Route exact path="/inputClinicals" render={(props) => <InputClinicals value={this.state.class}  handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} />
-             <Route exact path="/clinicals" render={(props) => <Clinicals class={this.state.class} />} /> 
+
+            <Route exact path="/inputClinicals" render={(props) => <InputClinicals value={this.state.class} handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} />} />
+            <Route exact path="/clinicals" render={(props) => <Clinicals class={this.state.class} />} />
           </div>
         </Switch>
       </Router>

@@ -15,9 +15,20 @@ handleSignUp = (event) => {
     })
 }
 captureInput = (event) => {
+
+    if (event.target.id === 'username') {
     this.setState({
-        [event.target.name]:event.target.value
+         username:event.target.value
     })
+}
+
+if (event.target.id === 'password') {
+    this.setState({
+         password:event.target.value
+    })
+}
+
+
 }
 render(){
     return(

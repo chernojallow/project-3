@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt")
 const Schema = mongoose.Schema;
 const SALT_WORK_FACTOR = 10;
 
+//Create a userlogin schema
 const userSchema = new Schema({
   username: { type: String, required: true, index:{unique:true} },
   password: { type: String, required:true }

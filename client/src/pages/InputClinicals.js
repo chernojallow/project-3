@@ -2,7 +2,7 @@
 
 
 import React, { Component } from "react";
-import API from "../api/Users";
+//import API from "../api/Users";
 //import "./Form.css";
 
 class InputClinicals extends Component {
@@ -15,7 +15,7 @@ class InputClinicals extends Component {
       <label>
 
        <input 
-        value={this.props.class} onChange={this.props.handleChange}
+        value={this.props.class} onChange={this.props.handleInputChange}
         class="name"
         type="text"
       

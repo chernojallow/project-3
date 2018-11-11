@@ -1,45 +1,64 @@
 
 import React from "react";
+import { isThisISOWeek } from "date-fns";
+import API from "../api/Users";
 
 
 class View extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            viewData: ""
+        };
+    }
 
-    // state = {
-    //     viewclinical: [],
-    //     cli: ""
-    //   };
 
-    // constructor(props) {
-    //   super(props);
-    //   this.state = {value: ''};
+    //  List = (props) => (
+    //     <ul className="list-group">
+    //       {props.map(item => (
+    //         <li className="list-group-item">
+    //           {item.name} {item.value}
+    //         </li>
+    //       ))}
+    //     </ul>
+    //       );
 
-    //   this.handleChange = this.handleChange.bind(this);
-    //   this.handleSubmit = this.handleSubmit.bind(this);
-    // }
+    // handleInputChange = (event) => {
+    //     this.setState(
+    //         {name: event.target.value },
+    //         {value: event.target.value}
 
-    // handleChange(event) {
-    //   this.setState({value: event.target.value});
-    // }
+    //         )
+    //     }                        
 
-    // handleSubmit(event) {
-    //  // alert('Your favorite flavor is: ' + this.state.value);
-    //   event.preventDefault();
-
-    //   console.log("I'm evaluating you",this.state);
-    //   API.view(this.state.cli).then(function(response){
-    //     console.log(response);
-
-    //   })
-
-    // }
+    componentDidMount() {
+        // this.setState({
+        //     res: "testing"
+        // })
+        API.getView().then((response) => {
+            console.log(response);
+            this.setState({
+                viewData: response.data
+            })
+        })
+    }
 
     render() {
         return (
             <div>
+                {this.state.viewData ? (
+                    this.state.viewData.map(view => (
+                        <React.Fragment>
+                            <div>{view.name}</div>
+                            <div>{view.value}</div>
+                        </React.Fragment>
+                    )
+                    )
+                ) : null}
                 <h3>In VIEW</h3>
-                {this.props.value}
                 {this.props.name}
-
+                <br />
+                {this.props.value}
             </div>
         );
     }
