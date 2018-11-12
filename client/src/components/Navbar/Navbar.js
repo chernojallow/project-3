@@ -1,130 +1,130 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from "reactstrap";
-//import "./Navbar.css";
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import {
+//   Collapse,
+//   Navbar,
+//   NavbarToggler,
+//   NavbarBrand,
+//   Nav,
+//   UncontrolledDropdown,
+//   DropdownToggle,
+//   DropdownMenu,
+//   DropdownItem
+// } from "reactstrap";
+// //import "./Navbar.css";
 
-// Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-export default class Navbar2 extends React.Component {
-  constructor(props) {
-    super(props);
+// // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
+// export default class Navbar2 extends React.Component {
+//   constructor(props) {
+//     super(props);
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
-  render() {
-    return (
-      <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Nursing School App</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+//     this.toggle = this.toggle.bind(this);
+//     this.state = {
+//       isOpen: false
+//     };
+//   }
+//   toggle() {
+//     this.setState({
+//       isOpen: !this.state.isOpen
+//     });
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <Navbar color="light" light expand="md">
+//           <NavbarBrand href="/">Nursing School App</NavbarBrand>
+//           <NavbarToggler onClick={this.toggle} />
+//           <Collapse isOpen={this.state.isOpen} navbar>
+//             <Nav className="ml-auto" navbar>
 
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Student
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
+//               <UncontrolledDropdown nav inNavbar>
+//                 <DropdownToggle nav caret>
+//                   Student
+//                 </DropdownToggle>
+//                 <DropdownMenu right>
+//                   <DropdownItem>
 
-                    <Link
-                      to="/clinicals">
-                      Clinicals Schedule
-                </Link>
+//                     <Link
+//                       to="/clinicals">
+//                       Clinicals Schedule
+//                 </Link>
 
-                  </DropdownItem>
-                  <DropdownItem>
+//                   </DropdownItem>
+//                   <DropdownItem>
 
-                    <Link
-                      to="/clinicalEvents">
-                      Clinical Events
-               </Link>
-                  </DropdownItem>
+//                     <Link
+//                       to="/clinicalEvents">
+//                       Clinical Events
+//                </Link>
+//                   </DropdownItem>
 
 
-                  <DropdownItem>
-                  <Link
-             to="/evaluate">
-               Evaluate
-              </Link>
+//                   <DropdownItem>
+//                   <Link
+//              to="/evaluate">
+//                Evaluate
+//               </Link>
 
-            </DropdownItem>
+//             </DropdownItem>
 
-                </DropdownMenu>
-              </UncontrolledDropdown>
+//                 </DropdownMenu>
+//               </UncontrolledDropdown>
 
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Faculty
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
+//               <UncontrolledDropdown nav inNavbar>
+//                 <DropdownToggle nav caret>
+//                   Faculty
+//                 </DropdownToggle>
+//                 <DropdownMenu right>
+//                   <DropdownItem>
 
-                    <Link
-                      to="/inputClinicals">
-                      Input Clinicals
-                  </Link>
-                  </DropdownItem>
-                  <DropdownItem>
-                    Search Student
-                  </DropdownItem>
+//                     <Link
+//                       to="/inputClinicals">
+//                       Input Clinicals
+//                   </Link>
+//                   </DropdownItem>
+//                   <DropdownItem>
+//                     Search Student
+//                   </DropdownItem>
 
-                   <DropdownItem>
-                    Search Schedule
-                  </DropdownItem>
+//                    <DropdownItem>
+//                     Search Schedule
+//                   </DropdownItem>
 
-                  <DropdownItem>
+//                   <DropdownItem>
 
-                    <Link
-                      to="/view">
-                      view evaluation
-                </Link>
+//                     <Link
+//                       to="/view">
+//                       view evaluation
+//                 </Link>
 
-                  </DropdownItem>
+//                   </DropdownItem>
 
-                </DropdownMenu>
-              </UncontrolledDropdown>
+//                 </DropdownMenu>
+//               </UncontrolledDropdown>
 
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Preceptor
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
+//               <UncontrolledDropdown nav inNavbar>
+//                 <DropdownToggle nav caret>
+//                   Preceptor
+//                 </DropdownToggle>
+//                 <DropdownMenu right>
+//                   <DropdownItem>
 
-                    Student login
-                  </DropdownItem>
-                  <DropdownItem>
-                    Evaluate
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+//                     Student login
+//                   </DropdownItem>
+//                   <DropdownItem>
+//                     Evaluate
+//                   </DropdownItem>
+//                   <DropdownItem divider />
+//                   <DropdownItem>
+//                     Reset
+//                   </DropdownItem>
+//                 </DropdownMenu>
+//               </UncontrolledDropdown>
 
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
-    );
-  }
-}
+//             </Nav>
+//           </Collapse>
+//         </Navbar>
+//       </div>
+//     );
+//   }
+// }

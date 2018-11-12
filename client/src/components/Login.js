@@ -1,42 +1,107 @@
+
+// Include React
 import React, {Component} from 'react';
-import  API from '../api/Users.js';
 
-export default class Login extends Component {
+// Requiring our api for making API calls
+var API  = require("../api/Users");
 
-state = {
-    username:"",
-    password:""
-}
-handleSignUp = (event) => {
+  export default class Login extends Component {
+
+    state = {
+        username:"",
+        password:""
+    }
+
+  handleChange =(event) => {
+   
+    if(event.target.id === 'username'){
+       this.setState({username: event.target.value});
+    }
+
+    if(event.target.id === 'password'){
+       this.setState({password: event.target.value});
+    }
+  }
+
+
+  handleLogin =(event) => {
+    console.log("logging in")
+    var username = this.state.username
+    console.log(username + ' is the username inside login')
+  
+    API.login({ 
+      username: username,
+      password: this.state.password 
+    }).then(function(response, username){
+      var user = JSON.parse(response.config.data).username
+        console.log("RESULTS", response.data.authenticated);
+        var isAuthenticated = response.data.authenticated;
+        console.log('*'+user+'*')
+        if(isAuthenticated){
+          document.cookie = "user="+user;
+          var x = document.cookie
+          console.log("cookie " + x)
+    
+        } else {
+          // show error and stay on apge
+          alert("failed to authenticate");
+        }
+    })
     event.preventDefault();
-    console.log("I'm signing up baby", this.state);
-    API.login(this.state).then(function(response){
-        console.log(response);
-    })
-}
-captureInput = (event) => {
+  }
 
-    if (event.target.id === 'username') {
-    this.setState({
-         username:event.target.value
-    })
-}
+  // Here we render the component
+  render(){
 
-if (event.target.id === 'password') {
-    this.setState({
-         password:event.target.value
-    })
-}
+    return (
+
+<section className="clearfix loginSection homeBanner">
+  <div className="container">
+    <div className="row">
+      <div className="center-block col-md-5 col-sm-6 col-xs-12">
+        <div className="panel panel-default loginPanel">
+          <div className="panel-heading text-center">Members log in</div>
+          <div className="panel-body">
+            <form onSubmit = {this.handleLogin} className="loginForm">
+              <div className="form-group">
+                <label for="userName">User Name *</label>
+                <input
+                      type="text"
+                      value={this.state.username}
+                      onChange={this.handleChange}
+                      className="form-control"
+                      id="username"
+                      required
+                    ></input>
+              </div>
+              <div className="form-group">
+                <label for="userPassword">Password *</label>
+                <input
+                      type="password"
+                      value={this.state.password}
+                      onChange={this.handleChange}
+                      className="form-control"
+                      id="password"
+                      required
+                    ></input>
+                <p className="help-block">Enter the password that accompanies your username.</p>
+              </div>
+              <div className="form-group">
+                <button type="submit" className="btn btn-primary pull-left">Log In</button>
+                <a href="#" className="pull-right link">Fogot Password?</a>
+              </div>
+            </form>
+          </div>
+          <div className="panel-footer text-center">
+            <p>Not a member yet? <a href="/#/Register" className="link">Sign up</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    );
+  }
+};
 
 
-}
-render(){
-    return(
-        <form>
-            <input onChange={this.captureInput} name="username"/>
-            <input onChange={this.captureInput} name="password"/>
-            <button onClick={this.handleSignUp}>Submit</button>
-        </form>
-    )
-}
-}

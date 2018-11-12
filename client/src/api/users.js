@@ -7,32 +7,34 @@ const API = {
 
     },
 
-
     register:function(newuser){
-        //  console.log(newuser)
-        console.log(newuser);
-          return axios.post("/register", newuser)
+        //console.log(newuser);
+          return axios.post("users/register", newuser)
       },
   
-
     view:function(newuser){
       //  console.log(newuser)
       console.log(newuser);
         return axios.post("/api/view", newuser)
     },
 
-
     getView:function(viewData){
         return axios.get("/api/view", viewData);
     },
 
-    viewClinicals:function(newClinical){
-        return axios.post("/viewClinicals", newClinical)
+    getClinicals:function(viewData){
+        return axios.post("api/clinicals", viewData)
+    },
+
+     viewClinicals:function(viewClinical){
+        return axios.post("api/clinicals", viewClinical)
     }
 
-}
 
+}
 export default API
+
+
 
 
 

@@ -1,6 +1,5 @@
 
 
-
 import React, { Component } from "react";
 //import API from "../api/Users";
 //import "./Form.css";
@@ -8,28 +7,27 @@ import React, { Component } from "react";
 class InputClinicals extends Component {
 
 
-  render(){
-    return(
+    render() {
+        return (
 
-      <form onSubmit={this.props.handleSubmit}>
-      <label>
+            <form onSubmit={this.props.handleSubmit}>
+                <label>
 
-       <input 
-        value={this.props.class} onChange={this.props.handleInputChange}
-        class="name"
-        type="text"
-      
-      />
+                    <input
+                        value={this.props.nameClass}
+                        onChange={this.props.handleInputChange}
+                        class="name"
+                        type="text"
+                      />
+  
+            
+                </label>
+                <input type="submit" value="Submit" onClick={this.props.handleSubmit} />
+            </form>
+        );
 
-         </label>
-          <input type="submit" value="Submit" />
-        </form>
-    );
-    
     }
-  }
-
- 
+}
 
 
 export default InputClinicals;

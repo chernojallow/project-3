@@ -14,12 +14,13 @@ app.use(express.static("client/public"));
 
 const userRoutes = require("./routes/users.js");
 app.use("/api/view", userRoutes);
+app.use("/api/clinicals", userRoutes);
 
 mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost/View")
 .then(() => console.log("MongoDB Connected"))
  .catch(err => console.log(err));
 
-
+ 
 
 
 //  Use apiRoutes

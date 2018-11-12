@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../models");
 const View = require("../models/View");
 const Viewdata = require("../models/Viewdata");
+const Clinicals = require("../models/Clinicals");
 
 router.get("/api/user", function (req, res) {
     res.send("Get users");
@@ -35,23 +36,7 @@ router.post("/login", function (req, res) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-// router.get("/view", function(req, res){
-//  res.send("Get users");
-
-// });
-
-
-
+// route to get our data 
 router.get("/", (req, res) => {
     View.find()
       .sort({ _id: -1 })
@@ -84,27 +69,62 @@ router.post("/", function (req, res) {
 
         else {
             res.json(doc)
-            
-    //         console.log(result.name)
-    //         const viewdata = new Viewdata(result);
-    //          viewdata.save()
-
-    //    // Viewdata.findOneAndUpdate({ '_id': id }, { $push: { 'view': doc._id } }, { new: true })
-               
-    //             // execute the above the query
-    //             .then(function (err, doc) {
-    //                 // log any errors
-    //                 if (err) {
-    //                     console.log(err);
-    //                 } else {
-    //                     res.json(doc);
-    //                     console.log("doc", doc);
-    //                 }
-    //             })
+  
         }
     })
 
 });
+
+
+
+
+
+// // route to get our clinical data 
+// router.get("/clinicals", (req, res) => {
+//     Clinicals.find()
+//       .sort({ _id: -1 })
+//       .then(clinicals => res.json(clinicals));
+//    });
+
+// //route to save our clinical data 
+// router.post("/clinicals", function (req, res) {
+//     console.log(req.body);
+//     // var id = req.params.id;
+//     var nClass = req.body.nameClass;
+   
+//     // "result object has the exact same key-value pairs of the "view" model
+//     var result = {
+//         nameClass: nClass,
+//     };
+    
+//    // using the view model, create a new entry
+//     var enterResult = new Clinicals (result);
+//    // save the entry to the database
+//     enterResult.save(function (err, doc) {
+//         console.log("Running");
+//         //log any errors
+//         if (err) {
+//             console.log(err);
+//         }
+//         // Or, relate the comment to the views
+
+//         else {
+//             res.json(doc)
+  
+//         }
+//     })
+
+// });
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
 
