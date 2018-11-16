@@ -3,13 +3,16 @@
 import React, {Component} from 'react';
 
 // Requiring our api for making API calls
-var API  = require("../api/Users");
+// var API  = require("../api/users");
+import API from "../api/users";
 
   export default class Login extends Component {
 
     state = {
         username:"",
-        password:""
+        password:"",
+        redirect: false
+      
     }
 
   handleChange =(event) => {
@@ -21,6 +24,7 @@ var API  = require("../api/Users");
     if(event.target.id === 'password'){
        this.setState({password: event.target.value});
     }
+
   }
 
 
@@ -31,7 +35,8 @@ var API  = require("../api/Users");
   
     API.login({ 
       username: username,
-      password: this.state.password 
+      password: this.state.password,
+      //value: 55
     }).then(function(response, username){
       var user = JSON.parse(response.config.data).username
         console.log("RESULTS", response.data.authenticated);
@@ -103,5 +108,8 @@ var API  = require("../api/Users");
     );
   }
 };
+
+
+
 
 

@@ -1,15 +1,17 @@
+
 // Here we utilize the axios library to perform GET/POST request
 import axios from "axios";
 
 const API = {
     login:function(newUser){
-        return axios.post("/login", newUser)
+        console.log(newUser)
+        return axios.post("/loginUser", newUser)
 
     },
 
-    register:function(newuser){
+    register:function(newusers){
         //console.log(newuser);
-          return axios.post("users/register", newuser)
+          return axios.post("/registerUser", newusers)
       },
   
     view:function(newuser){

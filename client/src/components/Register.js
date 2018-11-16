@@ -1,14 +1,17 @@
 
+
 // Include React
 import React, {Component} from 'react';
-var API = require("../api/Users");
+// var API = require("../api/users");
+import API from "../api/users";
 
     export default class Register extends Component {
 
     state = {
         firstname: "",
-        //lastname: ""
         password: "",
+        lastname:"",
+        username:""
     }
 
     handleChange = (event) => {
@@ -18,13 +21,29 @@ var API = require("../api/Users");
 
         if (event.target.id === 'password') {
             this.setState({ password: event.target.value });
+
         }
+
+
+        if (event.target.id === 'lastname') {
+            this.setState({ lastname: event.target.value });
+        }
+
+        if (event.target.id === 'username') {
+            this.setState({ username: event.target.value });
+        }
+
+
     }
     handleSubmit = (event) => {
+        console.log("Submit firing");
         event.preventDefault();
         API.register({
             firstname: this.state.firstname,
             password: this.state.password,
+            lastname: this.state.lastname,
+            username: this.state.username,
+
         }).then( function(response) {
             console.log("RESULTS", response);
 
@@ -100,10 +119,4 @@ var API = require("../api/Users");
         );
     }
 };
-
-
-
-
-
-
 

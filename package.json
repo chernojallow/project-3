@@ -1,26 +1,37 @@
 {
-    "name": "testyy",
-    "version": "1.0.0",
-    "description": "",
-    "main": "server.js",
-    "scripts": {
-      "client": "cd client && yarn start",
-      "server": "nodemon server.js",
-      "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-      "start:prod": "node server.js",
-      "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-      "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "bcrypt": "^3.0.2",
-      "concurrently": "^4.0.1",
-      "cors": "^2.8.4",
-      "express": "^4.16.4",
-      "if-env": "^1.0.4",
-      "mongoose": "^5.3.6",
-      "reactstrap": "^6.5.0"
-    }
+  "name": "testyy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.0.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.3.0",
+    "flash": "^1.1.0",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.3.6",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "password": "^0.1.1",
+    "reactstrap": "^6.5.0"
   }
+}

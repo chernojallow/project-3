@@ -1,49 +1,48 @@
 
+import React from "react";
+import API from "../api/users";
 
-// import React from "react";
-// import API from "../api/Users";
-
-// class Clinicals extends React.Component {
+class Clinicals extends React.Component {
 
 
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             viewData: ""
-//         };
-//     }
+    constructor(props) {
+        super(props);
+        this.state = {
+            viewData: ""
+        };
+    }
 
-//     componentDidMount() {
-//         // this.setState({
-//         //     res: "testing"
-//         // })
-//         API.getClinicals().then((response) => {
-//             console.log(response);
-//             this.setState({
-//                 viewData: response.data
-//             })
-//         })
-//     }
+    componentDidMount() {
+        // this.setState({
+        //     res: "testing"
+        // })
+        API.getClinicals().then((response) => {
+            console.log(response);
+            this.setState({
+                viewData: response.data
+            })
+        })
+    }
 
-//     render() {
-//         return (
-//             <div>
+    render() {
+        return (
+            <div>
 
-//                    {this.state.viewData ? (
-//                     this.state.viewData.map(view => (
+                   {this.state.viewData ? (
+                    this.state.viewData.map(view => (
                     
-//                             <div>{view.nameClass}</div>
+                            <div>{view.nameClass}</div>
                      
-//                     )
-//                     )
-//                 ) : null}
+                    )
+                    )
+                ) : null}
 
-//                 <h3>Viewing clinicals</h3>
-//                 {this.props.nameClass}
+                <h3>Viewing clinicals</h3>
+                {this.props.nameClass}
     
-//             </div>
-//         );
-//     }
-// }
+            </div>
+        );
+    }
+}
 
-// export default Clinicals;
+export default Clinicals;

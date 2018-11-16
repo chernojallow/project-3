@@ -1,5 +1,4 @@
 
-
 import React, { Component } from "react";
 //import API from "../api/Users";
 //import "./Form.css";
@@ -31,11 +30,6 @@ class InputClinicals extends Component {
 
 
 export default InputClinicals;
-
-
-
-
-
 
 
 

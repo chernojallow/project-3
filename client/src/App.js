@@ -1,19 +1,19 @@
-
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-//import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import Faculty from "./pages/Faculty";
 import Preceptor from "./pages/Preceptor";
 import Student from "./pages/Student";
-// import Clinicals from "./pages/Clinicals";
-// import Evaluate from "./pages/Evaluate";
-// import View from "./pages/View";
-// import InputClinicals from "./pages/InputClinicals";
+import Clinicals from "./pages/Clinicals";
+import Evaluate from "./pages/Evaluate";
+import View from "./pages/View";
+import InputClinicals from "./pages/InputClinicals";
+import Jumbotron from "./components/Jumbotron";
 
 import Register from "./components/Register";
-import Login from './components/Login.js';
+import Login from './components/Login';
 
-import API from "./api/Users";
+import API from "./api/users";
 //import { EventEmitter } from "events";
 
 class App extends React.Component {
@@ -53,24 +53,27 @@ class App extends React.Component {
       <Router>
         <Switch>
           <div>
-       {/*  <Navbar /> */}
+        <Navbar />
+      
 
           
-            <Login />
+            {/* <Login />
             <Register/>
-        
-       
-
+         */}
+            <Route exact path ="login" component ={Register} />
+            <Route exact path="/" component={Jumbotron} /> 
             <Route exact path="/faculty" component={Faculty} />
             <Route exact path="/preceptor" component={Preceptor} />
             <Route exact path="/student" component={Student} />
+            <Route exact path="/loginUser" component={Login} />
+            <Route exact path="/registerUser" component={Register} />
 
-            {/*
+
+            
             <Route exact path="/evaluate" render={(props) => <Evaluate value={this.state.value}   name={this.state.name} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} />
             <Route exact path="/view" render={(props) => <View value={this.state.value} name={this.state.name} />} />
-
             <Route exact path="/inputClinicals" render={(props) => <InputClinicals value={this.state.nameClass}  handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} />} />
-            <Route exact path="/clinicals" render={(props) => <Clinicals nameClass={this.state.nameClass}  />} />  */}
+            <Route exact path="/clinicals" render={(props) => <Clinicals nameClass={this.state.nameClass}  />} /> 
             
           </div>
         </Switch>
@@ -81,6 +84,4 @@ class App extends React.Component {
 }
 
 export default App;
-
-
 
