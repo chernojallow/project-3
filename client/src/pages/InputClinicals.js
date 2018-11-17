@@ -30,6 +30,3 @@ class InputClinicals extends Component {
 
 
 export default InputClinicals;
-
-
-

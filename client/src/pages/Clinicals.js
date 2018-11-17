@@ -1,4 +1,3 @@
-
 import React from "react";
 import API from "../api/users";
 
@@ -26,8 +25,8 @@ class Clinicals extends React.Component {
 
     render() {
         return (
-            <div>
-
+            <div className ="text-center">
+        
                    {this.state.viewData ? (
                     this.state.viewData.map(view => (
                     
@@ -37,9 +36,9 @@ class Clinicals extends React.Component {
                     )
                 ) : null}
 
-                <h3>Viewing clinicals</h3>
+                 <h3>Clinicals Schedule</h3>
                 {this.props.nameClass}
-    
+     
             </div>
         );
     }

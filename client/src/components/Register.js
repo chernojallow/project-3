@@ -24,7 +24,6 @@ import API from "../api/users";
 
         }
 
-
         if (event.target.id === 'lastname') {
             this.setState({ lastname: event.target.value });
         }
@@ -45,10 +44,12 @@ import API from "../api/users";
             username: this.state.username,
 
         }).then( function(response) {
-            console.log("RESULTS", response);
+            // window.location.pathname ="/"
+           // console.log("RESULTS", response);
 
         })
         // event.preventDefault();
+        window.location.pathname ="/loginUser"
     }
 
 

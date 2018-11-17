@@ -1,10 +1,13 @@
 
 // Include React
-import React, {Component} from 'react';
+import React, {Component, Redirect} from 'react';
+//import {hashHistory} from 'react-router';
+
 
 // Requiring our api for making API calls
 // var API  = require("../api/users");
 import API from "../api/users";
+import { isThisSecond } from 'date-fns';
 
   export default class Login extends Component {
 
@@ -37,20 +40,22 @@ import API from "../api/users";
       username: username,
       password: this.state.password,
       //value: 55
-    }).then(function(response, username){
+    }).then(function(response, username, replace){
       var user = JSON.parse(response.config.data).username
         console.log("RESULTS", response.data.authenticated);
         var isAuthenticated = response.data.authenticated;
         console.log('*'+user+'*')
         if(isAuthenticated){
-          document.cookie = "user="+user;
-          var x = document.cookie
-          console.log("cookie " + x)
-    
-        } else {
+          window.location.pathname ="/"
+          // document.cookie = "user="+user;
+          // var x = document.cookie
+          // console.log("cookie " + x)
+        } 
+        else {
           // show error and stay on apge
           alert("failed to authenticate");
         }
+
     })
     event.preventDefault();
   }
@@ -58,7 +63,7 @@ import API from "../api/users";
   // Here we render the component
   render(){
 
-    return (
+   return (
 
 <section className="clearfix loginSection homeBanner">
   <div className="container">
@@ -98,7 +103,7 @@ import API from "../api/users";
             </form>
           </div>
           <div className="panel-footer text-center">
-            <p>Not a member yet? <a href="/#/Register" className="link">Sign up</a></p>
+            <p>Not a member yet? <a href="/registerUser" className="link">Sign up</a></p>
           </div>
         </div>
       </div>

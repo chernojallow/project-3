@@ -5,18 +5,21 @@ class Evaluate extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit}>
-        <label>
 
-          <input
+      
+      <form onSubmit={this.props.handleSubmit}>
+    
+        <label>
+       <p className="name">Preceptor's Name.</p>
+          <input  
             value={this.props.name} onChange={this.props.handleChange}
             name="name"
             type="text"
             placeholder="name"
-          />
-
+          /> 
+         
           <br />
-          How is your preceptor performance this week?
+          How was your preceptor performance ?
           <br />
           <select value={this.props.value} onChange={this.props.handleChange}>
             <option value="">Choose an option</option>
@@ -24,13 +27,14 @@ class Evaluate extends React.Component {
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
-            <option value="4">5(Excellent)</option>
+            <option value="5">5(Excellent)</option>
           </select>
-          
+
         </label>
         <br /> 
         <input type="submit" value="Submit" onClick={this.props.handleSubmit} />
       </form>
+   
     );
   }
 }

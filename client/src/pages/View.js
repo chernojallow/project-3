@@ -26,12 +26,13 @@ class View extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className = "text-center" >
+                <h3>Results of Evaluation</h3>
                 {this.state.viewData ? (
                     this.state.viewData.map(view => (
                         <React.Fragment>
-                            <div>{view.name}</div>
-                            <div>{view.value}</div>
+                            <div>Question1:  {view.name}</div>
+                            <div>Answer: {view.value}</div>
                         </React.Fragment>
                     )
                     )
@@ -47,3 +48,16 @@ class View extends React.Component {
 }
 
 export default View;
+
+
+
+
+
+
+
+
+
+
+
+
+

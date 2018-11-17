@@ -48,9 +48,6 @@ app.use(session({
 }));
 
 
-
-
-
 // Express validator
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {

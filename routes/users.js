@@ -1,7 +1,7 @@
 // const express = require("express");
 // const router = express.Router();
 // const db = require("../models");
-//const View = require("../models/View");
+// const View = require("../models/View");
 // var passport = require('passport');
 // var LocalStrategy = require('passport-local').Strategy;
 // const Viewdata = require("../models/Viewdata");
@@ -120,18 +120,20 @@ var router = express.Router();
 var Login = require('../models/Login');
 var passport = require('passport');
 const View = require("../models/View");
+const Clinicals = require("../models/Clinicals");
 var LocalStrategy = require('passport-local').Strategy;
 
 
 
-// route to get our data 
+
+//route to get our data 
 router.get("/", (req, res) => {
     View.find()
       .sort({ _id: -1 })
       .then(views => res.json(views));
    });
 
-//route to save our data 
+ //route to save our data 
 router.post("/", function (req, res) {
     console.log(req.body);
     // var id = req.params.id;
@@ -168,41 +170,41 @@ router.post("/", function (req, res) {
 
 
 // // route to get our clinical data 
-// router.get("/clinicals", (req, res) => {
-//     Clinicals.find()
-//       .sort({ _id: -1 })
-//       .then(clinicals => res.json(clinicals));
-//    });
+router.get("/", (req, res) => {
+    Clinicals.find()
+      .sort({ _id: -1 })
+      .then(clinicals => res.json(clinicals));
+   });
 
-// //route to save our clinical data 
-// router.post("/clinicals", function (req, res) {
-//     console.log(req.body);
-//     // var id = req.params.id;
-//     var nClass = req.body.nameClass;
+//route to save our clinical data 
+router.post("/", function (req, res) {
+    console.log(req.body);
+    // var id = req.params.id;
+    var nClass = req.body.nameClass;
    
-//     // "result object has the exact same key-value pairs of the "view" model
-//     var result = {
-//         nameClass: nClass,
-//     };
+    // "result object has the exact same key-value pairs of the "view" model
+    var result = {
+        nameClass: nClass,
+    };
     
-//    // using the view model, create a new entry
-//     var enterResult = new Clinicals (result);
-//    // save the entry to the database
-//     enterResult.save(function (err, doc) {
-//         console.log("Running");
-//         //log any errors
-//         if (err) {
-//             console.log(err);
-//         }
-//         // Or, relate the comment to the views
+   // using the view model, create a new entry
+    var enterResult = new Clinicals (result);
+   // save the entry to the database
+    enterResult.save(function (err, doc) {
+        console.log("Running");
+        //log any errors
+        if (err) {
+            console.log(err);
+        }
+        // Or, relate the comment to the views
 
-//         else {
-//             res.json(doc)
+        else {
+            res.json(doc)
   
-//         }
-//     })
+        }
+    })
 
-// });
+});
 
 
 

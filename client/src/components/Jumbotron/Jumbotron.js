@@ -1,13 +1,18 @@
 import React from "react";
 import "./Jumbotron.css";
+import Hero from "../Hero";
 
 const Jumbotron = () => (
   <div className="jumbotron text-center">
+    {/* <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg"> */}
+    <Hero backgroundImage="http://www.cambridgehealth.edu/wp-content/uploads/2014/02/IMG_0001-78-e1395148734654.jpg">
     <h1>Nursing School Clinical App</h1>
+    </Hero>
+
     <a
       target="_blank"
       rel="noopener noreferrer"
-      href="http://www.recipepuppy.com/about/api/"
+      href="https://github.com/chernojallow"
             // href ="https://nursing.appstate.edu/sites/nursing.appstate.edu/files/appnursingclinical.jpg"
     >
       Powered by Cherno Jallow
