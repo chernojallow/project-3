@@ -20,7 +20,9 @@ var ViewSchema = new Schema({
   value: {
     type: Number,
     required: true
-  }
+  },
+
+
 });
 
 // Create the Article model with Mongoose

@@ -9,8 +9,13 @@ var Schema = mongoose.Schema;
 var InputClinicalsSchema = new Schema({
 
   // Title of name
-  nameClass: {
+  nameclass: {
     type: String,
+    required: true
+  },
+
+  room: {
+    type: Number,
     required: true
   },
 

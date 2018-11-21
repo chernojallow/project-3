@@ -29,19 +29,26 @@ class Clinicals extends React.Component {
         
                    {this.state.viewData ? (
                     this.state.viewData.map(view => (
-                    
-                            <div>{view.nameClass}</div>
+                            <React.Fragment>
+                                    <div><strong>Class Name:</strong>{view.nameclass}</div>
+                                    <div><strong>Room Number:</strong> {view.room} </div>
+                            </React.Fragment>
+                          
                      
                     )
                     )
                 ) : null}
 
                  <h3>Clinicals Schedule</h3>
-                {this.props.nameClass}
+             {/* {this.props.nameclass}
+            {this.props.room} */}
+
      
             </div>
         );
     }
+
+
 }
 
 export default Clinicals;

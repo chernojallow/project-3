@@ -13,7 +13,6 @@ const Jumbotron = () => (
       target="_blank"
       rel="noopener noreferrer"
       href="https://github.com/chernojallow"
-            // href ="https://nursing.appstate.edu/sites/nursing.appstate.edu/files/appnursingclinical.jpg"
     >
       Powered by Cherno Jallow
     </a>

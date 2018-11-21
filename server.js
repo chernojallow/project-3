@@ -16,7 +16,6 @@ var logger 	= require("morgan");
 const app = express();
 
 
-
 //app.use(require('serve-static')(__dirname + '/../../public'));
 app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
@@ -42,7 +41,7 @@ app.use(cookieParser());
 
 
 app.use(session({
-	secret: 'secret', //what is this?
+	secret: 'secret', 
 	saveUninitialized: true,
 	resave: true
 }));
@@ -104,17 +103,6 @@ mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost/Login")
 });
 
 
-
-//  Use apiRoutes
-// app.use("/api", apiRoutes);
-
-// Send every request to the React app
-// Define any API routes before this runs
-
-// app.post("/view", function(req, res){
-//   console.log(req.body);
-//   res.send("This worked");
-// })
 
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/public/index.html"));

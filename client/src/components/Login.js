@@ -47,6 +47,7 @@ import { isThisSecond } from 'date-fns';
         console.log('*'+user+'*')
         if(isAuthenticated){
           window.location.pathname ="/"
+          window.location.pathname ="navbar"
           // document.cookie = "user="+user;
           // var x = document.cookie
           // console.log("cookie " + x)
@@ -70,7 +71,7 @@ import { isThisSecond } from 'date-fns';
     <div className="row">
       <div className="center-block col-md-5 col-sm-6 col-xs-12">
         <div className="panel panel-default loginPanel">
-          <div className="panel-heading text-center">Members log in</div>
+          <div className="panel-heading text-center">Log in</div>
           <div className="panel-body">
             <form onSubmit = {this.handleLogin} className="loginForm">
               <div className="form-group">
@@ -94,11 +95,11 @@ import { isThisSecond } from 'date-fns';
                       id="password"
                       required
                     ></input>
-                <p className="help-block">Enter the password that accompanies your username.</p>
+                {/* <p className="help-block">Enter the password that accompanies your username.</p> */}
               </div>
               <div className="form-group">
                 <button type="submit" className="btn btn-primary pull-left">Log In</button>
-                <a href="#" className="pull-right link">Fogot Password?</a>
+                {/* <a href="#" className="pull-right link">Fogot Password?</a> */}
               </div>
             </form>
           </div>

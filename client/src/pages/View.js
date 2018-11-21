@@ -31,8 +31,8 @@ class View extends React.Component {
                 {this.state.viewData ? (
                     this.state.viewData.map(view => (
                         <React.Fragment>
-                            <div>Question1:  {view.name}</div>
-                            <div>Answer: {view.value}</div>
+                            <div> <strong>Preceptor Name:</strong>{view.name}</div>
+                            <div> <strong>Question Answer:</strong>{view.value}</div>
                         </React.Fragment>
                     )
                     )

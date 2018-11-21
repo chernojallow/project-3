@@ -13,7 +13,7 @@ var ViewdataSchema = new Schema({
     required: true
   },
 
-  value: {
+  value1: {
     type: Number,
     required: true
   },

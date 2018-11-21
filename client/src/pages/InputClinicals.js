@@ -9,19 +9,33 @@ class InputClinicals extends Component {
     render() {
         return (
 
-            <form onSubmit={this.props.handleSubmit}>
-                <label>
+            <form className="text-center" onSubmit={this.props.handleSubmitForm}>
+                <h2>Input Clinical Schedules</h2>
+                <label for="nameclass" className="control-label">Class name*</label>
+                <input
+                    value={this.props.nameclass}
+                    onChange={this.props.handleInputChange}
+                    // class="text-center"
+                    name="nameclass"
+                    placeholder="class name"
+                // type="text"
+                />
+                <br />
 
-                    <input
-                        value={this.props.nameClass}
-                        onChange={this.props.handleInputChange}
-                        class="name"
-                        type="text"
-                      />
-  
-            
-                </label>
-                <input type="submit" value="Submit" onClick={this.props.handleSubmit} />
+                <label for="room" className="control-label">Room number*</label>
+                <input
+                    value={this.props.room}
+                    onChange={this.props.handleInputChange}
+                    // class="text-center"
+                    name="room"
+                    placeholder="room number"
+                //  type="text"
+
+                />
+
+
+                <br />
+                <input type="submit" value="Submit" className="btn btn-primary" onClick={this.props.handleSubmitForm} />
             </form>
         );
 

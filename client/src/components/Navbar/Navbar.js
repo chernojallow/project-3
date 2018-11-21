@@ -31,18 +31,20 @@ export default class Navbar2 extends React.Component {
   }
   render() {
     return (
-      <div>
+
+     
+      
+        <div >
+          
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Home</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+          {/* <NavbarBrand href="/">Home</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} /> */}
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
 
+      
 
-
-
-
-  <UncontrolledDropdown nav inNavbar>
+  {/* <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   User
                 </DropdownToggle>
@@ -64,7 +66,7 @@ export default class Navbar2 extends React.Component {
                   </DropdownItem>
 
                 </DropdownMenu>
-              </UncontrolledDropdown>
+              </UncontrolledDropdown> */}
 
 
               <UncontrolledDropdown nav inNavbar>

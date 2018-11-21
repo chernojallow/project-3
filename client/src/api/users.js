@@ -25,7 +25,7 @@ const API = {
     },
 
     getClinicals:function(viewData){
-        return axios.post("api/clinicals", viewData)
+        return axios.get("api/clinicals", viewData)
     },
 
      viewClinicals:function(viewClinical){

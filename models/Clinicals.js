@@ -10,10 +10,17 @@ var Schema = mongoose.Schema;
 var ClinicalsSchema = new Schema({
 
   // Title of Article
-  nameClass: {
+  nameclass: {
     type: String,
     required: true
   },
+
+
+  room: {
+    type: Number,
+    required: true
+  },
+
 
 });
 

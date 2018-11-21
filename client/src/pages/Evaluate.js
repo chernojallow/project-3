@@ -7,10 +7,9 @@ class Evaluate extends React.Component {
     return (
 
       
-      <form onSubmit={this.props.handleSubmit}>
-    
-        <label>
-       <p className="name">Preceptor's Name.</p>
+      <form  className ="text-center" onSubmit={this.props.handleSubmit}>
+          <h2>Evaluating Preceptors</h2>
+        <label for= "Preceptor Name" className ="control-label"> Preceptor name: </label>
           <input  
             value={this.props.name} onChange={this.props.handleChange}
             name="name"
@@ -18,21 +17,22 @@ class Evaluate extends React.Component {
             placeholder="name"
           /> 
          
-          <br />
-          How was your preceptor performance ?
-          <br />
+          <br/>
+          <label for ="eval" className ="control-label"> How was your preceptor performance ? </label>
+           <br/>
           <select value={this.props.value} onChange={this.props.handleChange}>
             <option value="">Choose an option</option>
             <option value="1">1(Worst)</option>
-            <option value="2">2</option>
+            <option value="1">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5(Excellent)</option>
           </select>
 
-        </label>
+
+         <br/>
         <br /> 
-        <input type="submit" value="Submit" onClick={this.props.handleSubmit} />
+        <input type="submit" value="Submit" className ="btn btn-primary" onClick={this.props.handleSubmit} />
       </form>
    
     );
