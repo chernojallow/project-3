@@ -87,6 +87,7 @@ else{
 
 
 
+
 var db = mongoose.connection;
 
 // Show any Mongoose errors
@@ -98,6 +99,42 @@ db.on('error', function(err) {
 db.once('open', function() {
   console.log('Mongoose connection successful.');
 });
+
+
+
+
+
+
+
+// if (process.env.MONGODB_URI) {
+//   mongoose.connect(process.env.MONGODB_URI)
+// } else {
+//   mongoose.connect('mongodb://Login:@ds261429.mlab.com:61429/heroku_2jc810zq');
+// }
+
+// //local db
+// // mongoose.connect('mongodb://localhost/trekItOutDev');
+
+// //mlab uri - mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n
+// mongoose.connect('mongodb://Login:@ds261429.mlab.com:61429/heroku_2jc810zq');
+
+// // Init mongodb
+// mongoose.Promise = Promise;
+// var db = mongoose.connection;
+
+// // Show any Mongoose errors
+// db.on("error", function(error) {
+//   console.log("Mongoose Error: ", error);
+// });
+
+// // Once logged in to the db through mongoose, log a success message
+// db.once("open", function() {
+//   console.log("Mongoose connection successful.");
+// });
+
+
+
+
 
 
 
