@@ -9,10 +9,6 @@ var cookieParser 		= require('cookie-parser');
 var bodyParser 			= require("body-parser");
 var logger 	= require("morgan");
 
-
-
-
-
 const app = express();
 
 
@@ -86,7 +82,7 @@ mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost/Login")
  .catch(err => console.log(err));
 
  
-
+ 
 
  app.use(passport.initialize());
  app.use(passport.session());
@@ -111,9 +107,6 @@ app.get("*", function(req, res) {
 app.listen(PORT, function() {
   console.log("connected", PORT)
 });
-
-
-
 
 
 

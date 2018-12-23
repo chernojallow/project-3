@@ -3,13 +3,20 @@ import React from "react";
 
 class Evaluate extends React.Component {
 
+
+
+
+  
+
+
+
   render() {
     return (
 
       
       <form  className ="text-center" onSubmit={this.props.handleSubmit}>
           <h2>Evaluating Preceptors</h2>
-        <label for= "Preceptor Name" className ="control-label"> Preceptor name: </label>
+        <label htmlFor= "Preceptor Name" className ="control-label"> Preceptor name: </label>
           <input  
             value={this.props.name} onChange={this.props.handleChange}
             name="name"
@@ -18,7 +25,7 @@ class Evaluate extends React.Component {
           /> 
          
           <br/>
-          <label for ="eval" className ="control-label"> How was your preceptor performance ? </label>
+          <label htmlFor ="eval" className ="control-label"> How was your preceptor performance ? </label>
            <br/>
           <select value={this.props.value} onChange={this.props.handleChange}>
             <option value="">Choose an option</option>
@@ -32,11 +39,15 @@ class Evaluate extends React.Component {
 
          <br/>
         <br /> 
-        <input type="submit" value="Submit" className ="btn btn-primary" onClick={this.props.handleSubmit} />
+        <input type="submit" value="Submit" className ="btn btn-primary" onClick={this.props.handleSubmit}  />
+        
       </form>
    
     );
+    
   }
+
+
 }
 
 export default Evaluate;

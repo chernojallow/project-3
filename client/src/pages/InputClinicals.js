@@ -11,7 +11,7 @@ class InputClinicals extends Component {
 
             <form className="text-center" onSubmit={this.props.handleSubmitForm}>
                 <h2>Input Clinical Schedules</h2>
-                <label for="nameclass" className="control-label">Class name*</label>
+                <label htmlFor="nameclass" className="control-label">Class name*</label>
                 <input
                     value={this.props.nameclass}
                     onChange={this.props.handleInputChange}
@@ -22,7 +22,7 @@ class InputClinicals extends Component {
                 />
                 <br />
 
-                <label for="room" className="control-label">Room number*</label>
+                <label htmlFor="room" className="control-label">Room number*</label>
                 <input
                     value={this.props.room}
                     onChange={this.props.handleInputChange}

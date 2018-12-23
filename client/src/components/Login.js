@@ -1,16 +1,15 @@
 
+
 // Include React
-import React, {Component, Redirect} from 'react';
-//import {hashHistory} from 'react-router';
 
-
-// Requiring our api for making API calls
-// var API  = require("../api/users");
+import React, {Component,hashHistory, Redirect} from 'react';
 import API from "../api/users";
-import { isThisSecond } from 'date-fns';
+
+
 
   export default class Login extends Component {
 
+   
     state = {
         username:"",
         password:"",
@@ -27,7 +26,6 @@ import { isThisSecond } from 'date-fns';
     if(event.target.id === 'password'){
        this.setState({password: event.target.value});
     }
-
   }
 
 
@@ -40,17 +38,20 @@ import { isThisSecond } from 'date-fns';
       username: username,
       password: this.state.password,
       //value: 55
-    }).then(function(response, username, replace){
+    }).then(function(response, username, replace) {
       var user = JSON.parse(response.config.data).username
         console.log("RESULTS", response.data.authenticated);
         var isAuthenticated = response.data.authenticated;
         console.log('*'+user+'*')
         if(isAuthenticated){
-          window.location.pathname ="/"
+          // sessionStorage.setItem('userData', JSON.stringify(response));
+        
+          // window.location.pathname ="/"
           window.location.pathname ="navbar"
           // document.cookie = "user="+user;
           // var x = document.cookie
           // console.log("cookie " + x)
+        //    hashHistory.push('/profile/'+ user)
         } 
         else {
           // show error and stay on apge
@@ -114,7 +115,6 @@ import { isThisSecond } from 'date-fns';
     );
   }
 };
-
 
 
 

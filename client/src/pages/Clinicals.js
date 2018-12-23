@@ -1,7 +1,12 @@
 import React from "react";
 import API from "../api/users";
+import { Link } from "react-router-dom";
+
+
+
 
 class Clinicals extends React.Component {
+
 
 
     constructor(props) {
@@ -23,27 +28,37 @@ class Clinicals extends React.Component {
         })
     }
 
+
     render() {
         return (
-            <div className ="text-center">
-        
-                   {this.state.viewData ? (
+             
+            <div>
+                <Link
+                    to="/navbar">
+                    Home
+                </Link>
+
+                 <div className="text-center">
+                <h3>Clinicals Schedule</h3>
+                {this.state.viewData ? (
                     this.state.viewData.map(view => (
-                            <React.Fragment>
-                                    <div><strong>Class Name:</strong>{view.nameclass}</div>
-                                    <div><strong>Room Number:</strong> {view.room} </div>
-                            </React.Fragment>
-                          
-                     
+                        <React.Fragment>
+                            <div><strong>Class Name:</strong>{view.nameclass}</div>
+                            <div><strong>Room Number:</strong> {view.room} </div>
+                        </React.Fragment>
+
+
                     )
                     )
                 ) : null}
 
-                 <h3>Clinicals Schedule</h3>
-             {/* {this.props.nameclass}
+                {/* <h3>Clinicals Schedule</h3> */}
+                {/* {this.props.nameclass}
             {this.props.room} */}
 
-     
+
+
+            </div>
             </div>
         );
     }

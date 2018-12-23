@@ -10,7 +10,9 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  NavItem,
+  NavLink
 } from "reactstrap";
 //import "./Navbar.css";
 
@@ -24,27 +26,38 @@ export default class Navbar2 extends React.Component {
       isOpen: false
     };
   }
+
+  componentWillMount(){
+    if(sessionStorage.getItem('access_token') != null && sessionStorage.getItem('id_token') != null){
+        this.setState({loggedIn: true}); 
+    } 
+    else{
+        this.setState({loggedIn: false}); 
+    }
+}
+
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
   render() {
     return (
 
-     
       
         <div >
           
         <Navbar color="light" light expand="md">
-          {/* <NavbarBrand href="/">Home</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} /> */}
+         <NavbarBrand href="/navbar">Home</NavbarBrand> 
+          <NavbarToggler onClick={this.toggle} /> 
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
 
       
 
-  {/* <UncontrolledDropdown nav inNavbar>
+  <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   User
                 </DropdownToggle>
@@ -52,22 +65,37 @@ export default class Navbar2 extends React.Component {
                   <DropdownItem>
 
                     <Link
+                      to="/profile">
+                      Profile
+                </Link>
+
+
+                    {/* <Link
                       to="/loginUser">
                       Login
-                </Link>
+                </Link> */}
 
                   </DropdownItem>
                   <DropdownItem>
 
                     <Link
-                      to="/registerUser">
-                      Register
+                      to="/logoutData">
+                      Logout
                </Link>
+
+
                   </DropdownItem>
 
-                </DropdownMenu>
-              </UncontrolledDropdown> */}
+                  <DropdownItem>
 
+<Link
+  to="/profile">
+  Profile
+</Link>
+</DropdownItem>
+
+                </DropdownMenu>
+              </UncontrolledDropdown>
 
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -115,11 +143,20 @@ export default class Navbar2 extends React.Component {
                   </Link>
                   </DropdownItem>
                   <DropdownItem>
-                    Search Student
+
+                    <Link 
+                    to ="/searchStudent">
+                       Search Student
+                    </Link>
+                 
                   </DropdownItem>
 
                    <DropdownItem>
-                    Search Schedule
+    
+                    <Link 
+                    to = "searchSchedule">
+                        Search Schedule
+                    </Link>
                   </DropdownItem>
 
                   <DropdownItem>

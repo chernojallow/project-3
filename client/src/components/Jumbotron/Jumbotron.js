@@ -6,7 +6,7 @@ const Jumbotron = () => (
   <div className="jumbotron text-center">
     {/* <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg"> */}
     <Hero backgroundImage="http://www.cambridgehealth.edu/wp-content/uploads/2014/02/IMG_0001-78-e1395148734654.jpg">
-    <h1>Nursing School Clinical App</h1>
+    <h1>Nursing School App</h1>
     </Hero>
 
     <a

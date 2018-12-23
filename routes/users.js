@@ -8,6 +8,10 @@ const Clinicals = require("../models/Clinicals");
 var LocalStrategy = require('passport-local').Strategy;
 
 
+
+const booksController = require("../controllers/Controller");
+
+
 //route to get our  data 
 router.get("/", (req, res) => {
     View.find()
@@ -46,9 +50,6 @@ router.post("/", function (req, res) {
     })
 
 });
-
-
-
 
 
 // // route to get our clinical data 
@@ -171,6 +172,49 @@ router.post('/loginUser',
   function(req, res) {
   	res.json({authenticated: true});
 });
+
+
+router.get('/users/profile', function(req, res){
+
+    var user = req.params.user;
+  
+    Login.find({username: user}, function(error, doc) {
+      // Send any errors to the browser
+      if (error) {
+        res.send(error);
+      }
+      // Or send the doc to the browser
+      else {
+        console.log(doc);
+        res.send(doc);
+        //return doc;
+      }
+    });
+  
+  });
+
+
+    router.get('/logoutData', function(req,res){
+        console.log("logout");
+        req.logOut();
+        req.session.destroy(function (err) {
+            window.location.pathname ="/"
+            //    res.redirect('/'); //Inside a callback… bulletproof!
+           });
+       });
+
+
+
+
+       
+// Matches with "/api/books"
+router
+.get(booksController.findAll)
+
+
+// Matches with "/api/books/:id"
+router
+.get(booksController.findById)
 
 
 module.exports = router;

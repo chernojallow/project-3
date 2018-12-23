@@ -2,6 +2,8 @@
 import React from "react";
 //import { isThisISOWeek } from "date-fns";
 import API from "../api/users";
+import { Link } from "react-router-dom";
+
 
 
 class View extends React.Component {
@@ -26,6 +28,12 @@ class View extends React.Component {
 
     render() {
         return (
+
+            <div>
+                 <Link
+                    to="/navbar">
+                    Home
+                </Link>
             <div className = "text-center" >
                 <h3>Results of Evaluation</h3>
                 {this.state.viewData ? (
@@ -42,6 +50,7 @@ class View extends React.Component {
                 {this.props.name}
                 <br />
                 {this.props.value}  */}
+            </div>
             </div>
         );
     }
