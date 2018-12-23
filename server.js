@@ -79,11 +79,13 @@ app.use("/api/clinicals", userRoutes);
 
 
 if(process.env.NODE_ENV == 'production'){
-  mongoose.connect(`mongodb://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@ds261429.mlab.com:61429/heroku_2jc810zq`);
+  mongoose.connect(`mongodb://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@ds243084.mlab.com:43084/heroku_l004cj65`);
 }
 else{
   mongoose.connect('mongodb://localhost/Login');
 }
+
+
 
 
 
