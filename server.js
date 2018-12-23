@@ -77,9 +77,35 @@ app.use("/api/view", userRoutes);
 app.use("/api/clinicals", userRoutes);
 
 
-mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost/Login")
-.then(() => console.log("MongoDB Connected"))
- .catch(err => console.log(err));
+
+if(process.env.NODE_ENV == 'production'){
+  mongoose.connect(`mongodb://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@ds261429.mlab.com:61429/heroku_2jc810zq`);
+}
+else{
+  mongoose.connect('mongodb://localhost/Login');
+}
+
+
+
+var db = mongoose.connection;
+
+// Show any Mongoose errors
+db.on('error', function(err) {
+  console.log('Mongoose Error: ', err);
+});
+
+// Once logged in to the db through mongoose, log a success message
+db.once('open', function() {
+  console.log('Mongoose connection successful.');
+});
+
+
+
+
+
+// mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost/Login")
+// .then(() => console.log("MongoDB Connected"))
+//  .catch(err => console.log(err));
 
  
  
