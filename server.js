@@ -121,7 +121,7 @@ app.use("/api/clinicals", userRoutes);
 
 
 
-mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost/Login")
+mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost/project-3")
 .then(() => console.log("MongoDB Connected"))
  .catch(err => console.log(err));
 
