@@ -76,7 +76,7 @@ app.use(express.json());
 
 app.use(express.static("client/public"));
 
-const userRoutes = require("./routes/users.js");
+var userRoutes = require("./routes/users.js");
 app.use(userRoutes);
 app.use("/api/view", userRoutes);
 app.use("/api/clinicals", userRoutes);
@@ -86,31 +86,29 @@ app.use("/api/clinicals", userRoutes);
 
 //-------------- Mongoose Configuration ------------------------//
 
-// if(process.env.NODE_ENV){
-//   mongoose.connect(`mongodb://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@ds243084.mlab.com:43084/heroku_l004cj65`);
-// }
-// else{
-//   mongoose.connect('mongodb://localhost/Login');
-// }
+if(process.env.NODE_ENV){
+  mongoose.connect(`mongodb://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@ds243084.mlab.com:43084/heroku_l004cj65`);
+}
+else{
+  mongoose.connect('mongodb://localhost/Login');
+}
 
 
 
 
 
 
-// var db = mongoose.connection;
+var db = mongoose.connection;
 
-// // Show any Mongoose errors
-// db.on('error', function(err) {
-//   console.log('Mongoose Error: ', err);
-// });
+// Show any Mongoose errors
+db.on('error', function(err) {
+  console.log('Mongoose Error: ', err);
+});
 
-// // Once logged in to the db through mongoose, log a success message
-// db.once('open', function() {
-//   console.log('Mongoose connection successful.');
-// });
-
-
+// Once logged in to the db through mongoose, log a success message
+db.once('open', function() {
+  console.log('Mongoose connection successful.');
+});
 
 
 
@@ -121,9 +119,11 @@ app.use("/api/clinicals", userRoutes);
 
 
 
-mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost/Login")
-.then(() => console.log("MongoDB Connected"))
- .catch(err => console.log(err));
+
+
+// mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost/Login")
+// .then(() => console.log("MongoDB Connected"))
+//  .catch(err => console.log(err));
 
  
  
