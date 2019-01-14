@@ -6,7 +6,8 @@
       ● Preceptors check student’s login.
       ● 
       
-      [![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)](https://nursing-school-app.herokuapp.com/)
+      The application is deployed on Heroku : [Clinical App!](https://nursing-school-app.herokuapp.com/) 
+      
       
       
       
