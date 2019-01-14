@@ -4,5 +4,6 @@
       ● Students can view clinical schedules, clinicals events  and evaluate their preceptors.
       ● Faculty inputs clinical schedules, clinical events, and review evaluations of preceptors. 
       ● Preceptors check student’s login.
-      ● Built with MongoDB, Express,ReactJS, Node.js, 
       ● Here is the deployed app https://nursing-school-app.herokuapp.com/
+      
+      
