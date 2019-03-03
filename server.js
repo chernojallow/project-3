@@ -31,7 +31,6 @@ if(process.env.NODE_ENV === "production"){
   // mongoose.connect(`mongodb://heroku_z222hpz0:ld5ifsej4gs6a0l39gn1u42pr4@ds123124.mlab.com:23124/heroku_z222hpz0`);
    mongoose.connect(`mongodb://heroku_phbgss49:hnil7jigfvqaqdkovn9f15gdta@ds159025.mlab.com:59025/heroku_phbgss49`);
   // mongoose.connect(`mongodb://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@ds159025.mlab.com:59025/heroku_pg44b6xh`);
-
   
 }
 else{
