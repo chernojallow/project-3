@@ -1,5 +1,6 @@
 
 import React, { Component } from "react";
+
 //import API from "../api/Users";
 //import "./Form.css";
 
@@ -9,6 +10,9 @@ class InputClinicals extends Component {
     render() {
         return (
 
+
+            <div>
+          
             <form className="text-center" onSubmit={this.props.handleSubmitForm}>
                 <h2>Input Clinical Schedules</h2>
                 <label htmlFor="nameclass" className="control-label">Class name*</label>
@@ -37,6 +41,7 @@ class InputClinicals extends Component {
                 <br />
                 <input type="submit" value="Submit" className="btn btn-primary" onClick={this.props.handleSubmitForm} />
             </form>
+            </div>
         );
 
     }

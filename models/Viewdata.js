@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 // Create a Schema Class
 var Schema = mongoose.Schema;
 
-// Create Article Schema
+// Create view data Schema
 var ViewdataSchema = new Schema({
 
   // Title of Article
@@ -19,7 +19,7 @@ var ViewdataSchema = new Schema({
   },
 
 
-  // Create a relation with the Comment model
+  // Create a relation with the view data model
   views: [{
     type: Schema.Types.ObjectId,
     ref: 'View'
@@ -27,7 +27,7 @@ var ViewdataSchema = new Schema({
 
 });
 
-// Create the Article model with Mongoose
+// Create the view data model with Mongoose
 var Viewdata = mongoose.model('Viewdata', ViewdataSchema);
 
 // Export the Model

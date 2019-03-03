@@ -1,8 +1,8 @@
+
 module.exports = {
-  Login: require("./Login"),
+  Book: require("./book"),
+  Clinicals: require("./Clinicals"),
+  InputClinicals: require("./InputClinicals"),
   View: require("./View"),
   Viewdata: require("./Viewdata"),
-  Clinicals: require("./Clinicals"),
-  InputClinicals: require("./InputClinicals")
-
 };

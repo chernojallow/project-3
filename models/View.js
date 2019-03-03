@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 // Create a Schema Class
 var Schema = mongoose.Schema;
 
-// Create Article Schema
+// Create View Schema
 var ViewSchema = new Schema({
 
   // Title of Article
@@ -25,7 +25,7 @@ var ViewSchema = new Schema({
 
 });
 
-// Create the Article model with Mongoose
+// Create the View model with Mongoose
 var View = mongoose.model('View', ViewSchema);
 
 // Export the Model

@@ -1,7 +1,7 @@
 
 import React from "react";
 //import { isThisISOWeek } from "date-fns";
-import API from "../api/users";
+import API from "../utils/API";
 import { Link } from "react-router-dom";
 
 
@@ -31,7 +31,7 @@ class View extends React.Component {
 
             <div>
                  <Link
-                    to="/navbar">
+                    to="/">
                     Home
                 </Link>
             <div className = "text-center" >
@@ -57,16 +57,3 @@ class View extends React.Component {
 }
 
 export default View;
-
-
-
-
-
-
-
-
-
-
-
-
-

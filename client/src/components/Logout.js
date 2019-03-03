@@ -1,29 +1,36 @@
 
-import React, {Component} from 'react';
+// Include React
 
-export default class Logout extends Component{
-   
+import React, { Component } from "react";
+import axios from "axios";
 
-        logout =() => {
-            console.log("cherno is struggling like hell");
-            sessionStorage.setItem("userData");
-            sessionStorage.clear();
-            window.location.pathname ="/"
-            
+class Logout extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      isloggedin: true
+    };
+
+  }
+
+  //---- Component Rendering------//
+  render() {
+    return this.state.isloggedin ? (
+      <div>
+        <button
+          onClick={() =>
+            axios
+              .get("api/logout")
+              .then(res => (window.location = "/"))
           }
-       
-
-
-    render(){
-        return(
-            <div>
-                 {this.logout()}
-
-                 <div>
-   <a href="#" onClick={this.logout()}>LOGOUT</a>
-</div>
-                Now loggedOut;
-            </div>
-        )
-    }
+        >
+          Logout
+        </button>
+      </div>
+    ) : (
+      <h3>Please login</h3>
+    );
+  }
 }
+export default Logout;

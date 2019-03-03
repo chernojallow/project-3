@@ -1,19 +1,14 @@
 // Include our React
 import React from "react";
-
 class Evaluate extends React.Component {
-
-
-
-
-  
-
 
 
   render() {
     return (
 
-      
+               <div>
+               
+
       <form  className ="text-center" onSubmit={this.props.handleSubmit}>
           <h2>Evaluating Preceptors</h2>
         <label htmlFor= "Preceptor Name" className ="control-label"> Preceptor name: </label>
@@ -43,10 +38,12 @@ class Evaluate extends React.Component {
         
       </form>
    
+   
+   </div>
+
     );
     
   }
-
 
 }
 

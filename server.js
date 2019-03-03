@@ -1,102 +1,40 @@
-var express = require("express");
-var mongoose = require("mongoose");
-var path = require("path")
-var expressValidator 	= require('express-validator');
-var session 			= require('express-session');
-var passport = require("passport");
-var flash 				= require('connect-flash');
-var cookieParser 		= require('cookie-parser');
-var bodyParser 			= require("body-parser");
-var logger 	= require("morgan");
-
-require('dotenv').config();
-
-//-------------- Express Configuration ------------------------//
-
-var app = express();
 
 
-//app.use(require('serve-static')(__dirname + '/../../public'));
-app.use(require('cookie-parser')());
-app.use(require('body-parser').urlencoded({ extended: true }));
-
-app.use(require('express-session')({
-  secret: 'keyboard cat',
-  resave: true,
-  saveUninitialized: true
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const routes = require("./routes");
+const session = require("express-session");
+const cors = require("cors");
+const controller = require("./controller");
 
 
+//--------Express configuration-------//
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-
-app.use(logger("dev"));
-app.use(bodyParser.json());
+// Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-app.use(cookieParser());
+app.use(bodyParser.json());
+// Serve up static assets (usually on heroku)
+  app.use(express.static("client/build"));
 
-
-
-
-app.use(session({
-	secret: 'secret', 
-	saveUninitialized: true,
-	resave: true
-}));
-
-
-// Express validator
-app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
-
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
-
-
-var PORT = process.env.PORT || 8080;
-
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-
-app.use(express.static("client/public"));
+// Add routes, both API and view
 
 var userRoutes = require("./routes/users.js");
 app.use(userRoutes);
 app.use("/api/view", userRoutes);
 app.use("/api/clinicals", userRoutes);
 
-
-
-
-//-------------- Mongoose Configuration ------------------------//
-
-if(process.env.NODE_ENV){
-  mongoose.connect(`mongodb://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@ds243084.mlab.com:43084/heroku_l004cj65`);
+// Connect to the Mongo DB
+if(process.env.NODE_ENV === "production"){
+  // mongoose.connect(`mongodb://heroku_z222hpz0:ld5ifsej4gs6a0l39gn1u42pr4@ds123124.mlab.com:23124/heroku_z222hpz0`);
+  mongoose.connect(`mongodb://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@ds123124.mlab.com:23124/heroku_z222hpz0`);
 }
 else{
   mongoose.connect('mongodb://localhost/Login');
+
 }
-
-
-
-
-
 
 var db = mongoose.connection;
 
@@ -111,48 +49,31 @@ db.once('open', function() {
 });
 
 
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+    ],
+    methods: ["GET", "HEAD", "POST", "DELETE", "PUT", "PATCH", "OPTIONS"],
+    credentials: true //allow setting of cookies
+  })
+);
 
 
+//---------Express Session------//
+app.use(
+  session({
+    secret: "supersecretstring12345!",
+    saveUninitialized: true,
+    resave: true,
+    cookie: { maxAge: 60000 * 30 }
+  })
+);
+
+controller(app);
 
 
-
-
-
-
-
-
-// mongoose.connect(process.env.MONGODB_URL ||"mongodb://localhost/Login")
-// .then(() => console.log("MongoDB Connected"))
-//  .catch(err => console.log(err));
-
- 
- 
-
- app.use(passport.initialize());
- app.use(passport.session());
- app.use(flash());
-
-
-
- app.use(function (req, res, next){
-	res.locals.success_msg = req.flash('success_msg');
-	res.locals.error_msg = req.flash('error_msg');
-	res.locals.error = req.flash('error');
-	res.locals.user = req.user || null;
-	next();
-});
-
-
-
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
-});
-
+// Start the API server
 app.listen(PORT, function() {
-  console.log("connected", PORT)
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
-
-
-
-
-

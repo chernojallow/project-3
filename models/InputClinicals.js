@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 // Create a Schema Class
 var Schema = mongoose.Schema;
 
-// Create Article Schema
+// Create Input clinicals Schema
 var InputClinicalsSchema = new Schema({
 
   // Title of name
@@ -19,8 +19,8 @@ var InputClinicalsSchema = new Schema({
     required: true
   },
 
-  
-  // Create a relation with the Comment model
+
+  // Create a relation with the Clinicals model
   clinicals: [{
     type: Schema.Types.ObjectId,
     ref: 'Clinicals'
@@ -28,7 +28,7 @@ var InputClinicalsSchema = new Schema({
 
 });
 
-// Create the Article model with Mongoose
+// Create the Clinicals model with Mongoose
 var InputClinicals = mongoose.model('InputClinicals', InputClinicalsSchema);
 
 // Export the Model

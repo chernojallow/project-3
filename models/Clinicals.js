@@ -1,8 +1,6 @@
 // Require Mongoose
 const mongoose = require("mongoose");
 
-// Require Mongoose
-
 // Create a Schema Class
 var Schema = mongoose.Schema;
 
@@ -15,12 +13,10 @@ var ClinicalsSchema = new Schema({
     required: true
   },
 
-
   room: {
     type: Number,
     required: true
   },
-
 
 });
 
