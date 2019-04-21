@@ -4,8 +4,6 @@ import React from "react";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 
-
-
 class View extends React.Component {
     constructor(props) {
         super(props);
@@ -30,17 +28,32 @@ class View extends React.Component {
         return (
 
             <div>
-                 <Link
+                <Link
                     to="/">
                     Home
                 </Link>
-            <div className = "text-center" >
-                <h3>Results of Evaluation</h3>
+
+                <h3 className="text-center">Evaluation Results</h3>
+
                 {this.state.viewData ? (
                     this.state.viewData.map(view => (
                         <React.Fragment>
-                            <div> <strong>Preceptor Name:</strong>{view.name}</div>
-                            <div> <strong>Question Answer:</strong>{view.value}</div>
+                            <div className="container">
+
+
+                                <ul className="list-group">
+                                    <li className="list-group-item">
+
+                                        <strong>Preceptor Name:</strong>{view.name} <br></br>
+                                        <strong>Class Name:</strong>{view.nameclass} <br></br>
+                                        <strong>Question Answer:</strong>{view.value} <br></br>
+
+                                    </li>
+                                </ul>
+
+                            </div>
+
+
                         </React.Fragment>
                     )
                     )
@@ -50,7 +63,7 @@ class View extends React.Component {
                 {this.props.name}
                 <br />
                 {this.props.value}  */}
-            </div>
+
             </div>
         );
     }

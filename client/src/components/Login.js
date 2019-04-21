@@ -49,6 +49,7 @@ class Login extends Component {
   render() {
     return (
 
+
       <div className="container">
         <div class="row">
           <div className="center-block col-md-5 col-sm-6 col-xs-12">
@@ -68,6 +69,8 @@ class Login extends Component {
                   <input
                     onChange={this.changeHandler}
                     type="email"
+                    icon="envelope"
+                    group
                     placeholder="Enter your email"
                     name="email"
                     id="email"
@@ -100,9 +103,8 @@ class Login extends Component {
         </div>
       </div>
 
-
     );
-  }
+}
 }
 
 export default Login;

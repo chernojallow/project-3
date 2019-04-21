@@ -54,7 +54,7 @@ export default class Navbar2 extends React.Component {
                   <DropdownItem>
 
                     <Link
-                      to="/">
+                      to="/logout">
                       Logout
                </Link>
 

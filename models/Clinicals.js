@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
 // Create Article Schema
 var ClinicalsSchema = new Schema({
 
-  // Title of Article
+  // Title of Name
   nameclass: {
     type: String,
     required: true
@@ -15,6 +15,23 @@ var ClinicalsSchema = new Schema({
 
   room: {
     type: Number,
+    required: true
+  },
+
+
+  classTime: {
+    type: Number,
+    required: true
+  },
+
+  // _id: {
+  //   type:String,
+  //   required: true
+  // },
+
+ 
+  instructor: {
+    type: String,
     required: true
   },
 

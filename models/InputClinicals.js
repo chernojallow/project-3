@@ -20,6 +20,16 @@ var InputClinicalsSchema = new Schema({
   },
 
 
+  classTime: {
+    type: Number,
+    required: true
+  },
+
+  instructor: {
+    type: String,
+    required: true
+  },
+
   // Create a relation with the Clinicals model
   clinicals: [{
     type: Schema.Types.ObjectId,

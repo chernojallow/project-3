@@ -22,6 +22,10 @@ var ViewSchema = new Schema({
     required: true
   },
 
+  nameclass: {
+    type: String,
+    required: true
+  },
 
 });
 

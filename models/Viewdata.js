@@ -18,6 +18,11 @@ var ViewdataSchema = new Schema({
     required: true
   },
 
+  nameclass: {
+    type: Number,
+    required: true
+  },
+
 
   // Create a relation with the view data model
   views: [{
