@@ -25,8 +25,7 @@ var ClinicalsSchema = new Schema({
   },
 
   // _id: {
-  //   type:String,
-  //   required: true
+  //   type:String
   // },
 
  

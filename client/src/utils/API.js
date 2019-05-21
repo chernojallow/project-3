@@ -3,40 +3,46 @@
 import axios from "axios";
 
 const API = {
-    login:function(newUser){
+    login: function (newUser) {
         console.log(newUser)
         return axios.post("/loginUser", newUser)
     },
 
-
-    register:function(newusers){
+    register: function (newusers) {
         //console.log(newuser);
-          return axios.post("/registerUser", newusers)
-      },
-  
+        return axios.post("/registerUser", newusers)
+    },
 
-    view:function(newuser){
-      //  console.log(newuser)
-      console.log(newuser);
+    view: function (newuser) {
+        //  console.log(newuser)
+        console.log(newuser);
         return axios.post("/api/view", newuser)
     },
 
-    getView:function(viewData){
+    getView: function (viewData) {
         return axios.get("/api/view", viewData);
     },
 
-    getClinicals:function(viewData){
+    getClinicals: function (viewData) {
         return axios.get("api/clinicals", viewData)
     },
 
-     viewClinicals:function(viewClinical){
+    viewClinicals: function (viewClinical) {
         return axios.post("api/clinicals", viewClinical)
     },
 
-     deleteClinicals: function(id){
-         return axios.delete("api/clinicals/:id", id);
-     }
+    deleteClinicals: function (id) {
+        return axios.delete("api/clinicals/:id", id);
+    },
 
+    searchStudent: function (id) {
+        return axios.post("api/searchStudent/:id", id);
+
+    },
+
+    updateSchedule: function (id) {
+        return axios.post("api/update/:id", id);
+    }
 
 }
 export default API

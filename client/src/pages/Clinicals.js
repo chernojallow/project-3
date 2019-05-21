@@ -2,10 +2,6 @@ import React from "react";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import DeleteBtn from "../components/DeleteBtn";
-import { doesNotReject } from "assert";
-import { Button } from "@material-ui/core";
-const mongoose = require("mongoose");
-
 
 class Clinicals extends React.Component {
 
@@ -27,9 +23,10 @@ class Clinicals extends React.Component {
 
       delete = id => {
              API.deleteClinicals(id)
-                .then(res => console.log("Deleted"))
-                .catch(err =>console.log("Error checking",err));
-      }
+                .then(res => console.log(res.data))
+                .catch(err =>console.log("Error checking", err));
+      
+    }
 
     render() {
         return (
@@ -52,12 +49,11 @@ class Clinicals extends React.Component {
                                         <strong>Room Number:</strong> {view.room} <br></br>
                                         <strong>Class Time:</strong> {view.classTime}<br></br>
                                         <strong>Instructor:</strong> {view.instructor} <br></br>
-                                        <DeleteBtn onClick={() => this.delete(view._id)} />
-                                      
+                                        <DeleteBtn onClick={() => this.delete(view._id)} />   
+                                         <Link to={"/editSchedules/"}>Edit</Link>
                                     </li>
                                     <br></br>
                                 </ul>
-
                             </div>
                            
                         </React.Fragment>

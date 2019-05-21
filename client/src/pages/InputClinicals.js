@@ -1,6 +1,5 @@
 
 import React, { Component } from "react";
-import { Form, Button, FormGroup, Label, Input, FormText } from "reactstrap"
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 
 //import API from "../api/Users";
@@ -11,7 +10,6 @@ class InputClinicals extends Component {
 
     render() {
         return (
-
 
             <div>
 
@@ -62,7 +60,7 @@ class InputClinicals extends Component {
                                     className="grey-text"
                                 >
                                     Instructor 
-                </label>
+                          </label>
                                 <input
                                     value = {this.props.instructor}
                                     onChange ={this.props.handleInputChange}

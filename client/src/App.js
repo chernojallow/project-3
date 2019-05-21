@@ -9,17 +9,17 @@ import View from "./pages/View";
 import InputClinicals from "./pages/InputClinicals";
 import Jumbotron from "./components/Jumbotron";
 import API from "./utils/API";
+import Search from "./pages/Search";
 
 
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Register from "./components/Register";
+import UpdateSchedules from "./pages/UpdateSchedules";
 
 
 
 import './styles/custom.css';
-
-
 
 
 class App extends React.Component {
@@ -67,27 +67,29 @@ class App extends React.Component {
 
   }
 
-  // logout = () => {
-  //   this.setState({ loggedIn: false });
-  // }
+  onSubmit = (e) => {
+    e.preventDefault();
+    const obj = {
+        nameclass: this.state.nameclass,
+        room: this.state.room,
+        classTime: this.state.classTime,
+        instructor: this.state.instructor
+       
+    };
+    API.updateSchedule(this.props.match.params.id, obj)
+   
+        .then(res => console.log(res.data));
 
-
-
-  // deleteBook = id => {
-  //   API.deleteClinicals(id)
-  //     // .then(res => this.loadBooks())
-  //     .catch(err => console.log(err));
-  // };
+    // this.props.history.push('/');
+    window.location.pathname = "/clinicals"
+}
 
 
   render() {
     return (
 
-
-
       <Router>
         <Switch>
-
 
           <div>
             <Route exact path="/" component={Login} />
@@ -96,6 +98,17 @@ class App extends React.Component {
 
             <Route exact path="/navbar" component={Navbar} />
             <Route exact path="/navbar" component={Jumbotron} />
+            <Route exact path ="/searchStudent" component={Search} />
+
+          <Route exact path ="/editSchedules/" render = {(props) => 
+            <UpdateSchedules
+                  nameclass ={this.state.nameclass}
+                  room ={this.state.room}
+                  classTime = {this.classTime}
+                  instructor ={this.state.instructor}
+                  handleInputChange={this.handleInputChange}
+                  handleSubmitForm ={this.handleSubmitForm}
+                  onSubmit ={this.onSubmit} /> } /> 
 
             <Route exact path="/evaluate" render={(props) =>
               <Evaluate
@@ -109,24 +122,19 @@ class App extends React.Component {
                 value={this.state.value}
                 name={this.state.name} />} />
 
-
             <Route exact path="/inputClinicals" render={(props) =>
               <InputClinicals
                 nameclass={this.state.nameclass}
                 room={this.state.room}
                 handleInputChange={this.handleInputChange}
                 handleSubmitForm={this.handleSubmitForm}
-
+                onSubmit ={this.onSubmit}
               />}
             />
-
             <Route exact path="/clinicals" render={(props) =>
               <Clinicals
                 nameclass={this.state.nameclass}
                 room={this.state.room} />} />
-
-
-
           </div>
 
         </Switch>

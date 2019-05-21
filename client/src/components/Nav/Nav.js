@@ -117,17 +117,15 @@ export default class Navbar2 extends React.Component {
                       Input Clinicals
                   </Link>
                   </DropdownItem>
-                  <DropdownItem>
 
+                  <DropdownItem>
                     <Link
                       to="/searchStudent">
                       Search Student
                     </Link>
-
                   </DropdownItem>
 
                   <DropdownItem>
-
                     <Link
                       to="searchSchedule">
                       Search Schedule
@@ -158,6 +156,7 @@ export default class Navbar2 extends React.Component {
                   <DropdownItem>
                     Evaluate
                   </DropdownItem>
+
                   <DropdownItem divider />
                   <DropdownItem>
                     Reset

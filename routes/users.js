@@ -1,8 +1,10 @@
 
 var express = require('express');
 var router = express.Router();
+var mongojs = require("mongojs");
 const View = require("../models/View");
 const Clinicals = require("../models/Clinicals");
+const mongoose = require('mongoose');
 
 //Route to get our view data 
 router.get("/", (req, res) => {
@@ -83,26 +85,83 @@ router.post("/api/clinicals", function (req, res) {
 
 //Api to find users by Id
 
-router.get("api/clinicals/:id", function (req, res, next) {
+router.get("/:id", function (req, res, next) {
     let id = req.params.id;
     Clinicals.findById(id, function (err, data) {
-        if(err){
+        if (err) {
             return next(err);
         }
-         res.json(data);
+        res.json(data);
     })
 })
 
+
+// router.get('/:id',function(req, res) {
+//     let id = req.params.id;
+//     Clinicals.findById(id, function(err, todo) {
+//         res.json(todo);
+//     });
+// });
+
+
+
 //Api for Delete data from database  
-router.delete("/:id", function (req, res, next) {
-    Clinicals.findByIdAndRemove(req.params.id, req.body, function (err, data) {
+// router.delete("/api/clinicals/:id", function (req, res, next) {
+//     Clinicals.findByIdAndRemove(req.params.id, req.body, function (err, data) {
 
-        if (err)
-            return next(err);
-        res.json(data)
+//         if (err)
+//             return next(err);
+//         res.json(data)
+//     });
+// })
+
+
+
+// Routes to update the clinical schedules
+
+router.post("/api/update/:id", function (req, res) {
+    Clinicals.findById(req.params.id, function (err, todo) {
+        if (!todo)
+            res.status(404).send('data is not found');
+        else
+            todo.nameclass = req.body.nameclass;
+            todo.room = req.body.room;
+            todo.classTime = req.body.classTime;
+            todo.instructor = req.body.instructor;
+
+        todo.save().then(todo => {
+            res.json('Todo updated');
+        })
+            .catch(err => {
+                res.status(400).send("Update not possible");
+            });
     });
-})
+});
 
-// Get username if it matches and validate password
+
+
+
+
+router.delete("/api/clinicals/:id", function (req, res) {
+    Clinicals.findByIdAndRemove(
+        {
+            //  _id: mongojs.ObjectID(req.params.id)
+            _id: req.params.id
+
+        },
+        function (error, removed) {
+
+            if (error) {
+                console.log(error);
+                res.send(error);
+            }
+            else {
+                console.log(removed);
+                //   res.send(removed);
+            }
+        }
+    );
+});
+
 module.exports = router;
 

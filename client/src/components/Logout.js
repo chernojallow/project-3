@@ -15,6 +15,8 @@ class Logout extends Component {
   }
 
   //---- Component Rendering------//
+
+
   render() {
     return this.state.isloggedin ? (
       <div>
@@ -34,3 +36,15 @@ class Logout extends Component {
   }
 }
 export default Logout;
+
+
+
+
+
+
+
+
+
+
+
+
