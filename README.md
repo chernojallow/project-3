@@ -5,7 +5,7 @@ Students can view clinical schedules, clinicals events  and evaluate their prece
 Faculty inputs clinical schedules, clinical events, and review evaluations of preceptors. 
 Preceptors check student’s login.
 
- Deployed on Heroku : [Clinical App!]( https://nursing-school-app.herokuapp.com/) 
+
 
 
       
