@@ -95,28 +95,6 @@ router.get("/:id", function (req, res, next) {
     })
 })
 
-
-// router.get('/:id',function(req, res) {
-//     let id = req.params.id;
-//     Clinicals.findById(id, function(err, todo) {
-//         res.json(todo);
-//     });
-// });
-
-
-
-//Api for Delete data from database  
-// router.delete("/api/clinicals/:id", function (req, res, next) {
-//     Clinicals.findByIdAndRemove(req.params.id, req.body, function (err, data) {
-
-//         if (err)
-//             return next(err);
-//         res.json(data)
-//     });
-// })
-
-
-
 // Routes to update the clinical schedules
 
 router.post("/api/update/:id", function (req, res) {
