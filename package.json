@@ -1,5 +1,5 @@
 {
-  "name": "mern",
+  "name": "project-3",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -30,7 +30,7 @@
     "if-env": "^1.0.4",
     "mdbreact": "^4.12.0",
     "mongojs": "^2.6.0",
-    "mongoose": "4.7.2",
+    "mongoose": "^5.0.17",
     "reactstrap": "^6.5.0"
   }
 }

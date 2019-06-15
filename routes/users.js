@@ -119,14 +119,15 @@ router.post("/api/update/:id", function (req, res) {
 
 
 
-
+// Delete routes 
 router.delete("/api/clinicals/:id", function (req, res) {
-    Clinicals.findByIdAndRemove(
+    Clinicals.findByIdAndRemove( 
         {
             //  _id: mongojs.ObjectID(req.params.id)
             _id: req.params.id
+           
 
-        },
+    },
         function (error, removed) {
 
             if (error) {
@@ -134,8 +135,8 @@ router.delete("/api/clinicals/:id", function (req, res) {
                 res.send(error);
             }
             else {
-                console.log(removed);
-                //   res.send(removed);
+                // console.log(removed);
+                  res.send(removed);
             }
         }
     );

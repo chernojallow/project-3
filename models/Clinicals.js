@@ -2,10 +2,10 @@
 const mongoose = require("mongoose");
 
 // Create a Schema Class
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 // Create Article Schema
-var ClinicalsSchema = new Schema({
+const ClinicalsSchema = new Schema({
 
   // Title of Name
   nameclass: {
@@ -24,10 +24,6 @@ var ClinicalsSchema = new Schema({
     required: true
   },
 
-  // _id: {
-  //   type:String
-  // },
-
  
   instructor: {
     type: String,
@@ -37,7 +33,7 @@ var ClinicalsSchema = new Schema({
 });
 
 // Create the Article model with Mongoose
-var Clinicals = mongoose.model('Clinicals', ClinicalsSchema);
+const Clinicals = mongoose.model('Clinicals', ClinicalsSchema);
 
 // Export the Model
 module.exports = Clinicals;
